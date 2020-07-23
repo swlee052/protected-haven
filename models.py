@@ -9,10 +9,11 @@ def connect_db(app):
 
 class Lang(db.Model):
     __tablename__ = 'langs'
-    id = db.Column(db.Integer,
-                    primary_key=True,
-                    autoincrement=True)
-    name = db.Column(db.String(), nullable=False)
+    # id = db.Column(db.Integer,
+    #                 primary_key=True,
+    #                 autoincrement=True)
+    name = db.Column(db.String(), 
+                        primary_key=True)
     script = db.Column(db.String(), nullable=False)
     report = db.Column(db.Integer(), db.ForeignKey('report.id'))
 #   resources = db.Column(db.Integer(), db.ForeignKey('resources.id'))
