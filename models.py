@@ -18,7 +18,7 @@ class Lang(db.Model):
     form_name = db.Column(db.String(), nullable=True)
     form_email = db.Column(db.String(), nullable=True)
     form_phone = db.Column(db.String(), nullable=True)
-    form_detail = db.Column(db.String(), nullable=True)
+    form_details = db.Column(db.String(), nullable=True)
     # report = db.Column(db.Integer(), db.ForeignKey('report.id'))
 #   resources = db.Column(db.Integer(), db.ForeignKey('resources.id'))
 

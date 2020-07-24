@@ -1,4 +1,4 @@
-from models import db, Lang, Report
+from models import db, Lang#, Report
 from app import app
 
 db.drop_all()

@@ -1,5 +1,25 @@
-{% extends 'base.html %'}
+{% extends 'base.html' %}
 
 {% block content %}
+
+<form>
+    <div class="form-group">
+      <label for="name">{{lang.form_name}}</label>
+      <input type="text" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+      <label for="email">{{lang.form_email}}</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+      <label for="phone">{{lang.form_phone}}</label>
+      <input type="tel" class="form-control" id="phone">
+    </div>
+    <div class="form-group">
+      <label for="details">{{lang.form_details}}</label>
+      <textarea class="form-control" id="details"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 
 {% endblock %}
