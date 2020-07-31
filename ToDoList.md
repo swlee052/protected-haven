@@ -21,3 +21,7 @@
 - Additional languages </br>
 - Anonymity feature with history erasing </br>
 - Buttons to lead directly to 112 or 114 on phone </br>
+- Geolocation function</br>
+- Admin page</br>
+
+
