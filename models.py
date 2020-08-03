@@ -6,7 +6,7 @@ def connect_db(app):
     db.app = app
     db.init_app(app)
 
-#(comment needed)
+#the basic class of objects in our database for each available language
 class Lang(db.Model):
     __tablename__ = 'langs'
     # id = db.Column(db.Integer,
@@ -20,9 +20,9 @@ class Lang(db.Model):
     form_phone = db.Column(db.String(), nullable=True)
     form_details = db.Column(db.String(), nullable=True)
     # report = db.Column(db.Integer(), db.ForeignKey('report.id'))
-#   resources = db.Column(db.Integer(), db.ForeignKey('resources.id'))
+    # resources = db.Column(db.Integer(), db.ForeignKey('resources.id'))
 
-#(comment needed)
+#unneeded at the moment, may be deleted if not used
 # class Report(db.Model):
 #     __tablename__ = 'reports'
 #     id = db.Column(db.Integer,
@@ -33,7 +33,7 @@ class Lang(db.Model):
 #     form_phone = db.Column(db.String(), nullable=True)
 #     form_detail = db.Column(db.String(), nullable=True)
 
-#(comment needed)
+#this will be the class to possibly hold resources in the future
 # class Resource(db.Model):
 #      __tablename__ = 'resources'
 #     id = db.Column(db.Integer,
