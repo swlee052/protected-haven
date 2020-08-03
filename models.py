@@ -6,7 +6,7 @@ def connect_db(app):
     db.app = app
     db.init_app(app)
 
-
+#(comment needed)
 class Lang(db.Model):
     __tablename__ = 'langs'
     # id = db.Column(db.Integer,
@@ -22,6 +22,7 @@ class Lang(db.Model):
     # report = db.Column(db.Integer(), db.ForeignKey('report.id'))
 #   resources = db.Column(db.Integer(), db.ForeignKey('resources.id'))
 
+#(comment needed)
 # class Report(db.Model):
 #     __tablename__ = 'reports'
 #     id = db.Column(db.Integer,
@@ -32,6 +33,7 @@ class Lang(db.Model):
 #     form_phone = db.Column(db.String(), nullable=True)
 #     form_detail = db.Column(db.String(), nullable=True)
 
+#(comment needed)
 # class Resource(db.Model):
 #      __tablename__ = 'resources'
 #     id = db.Column(db.Integer,
