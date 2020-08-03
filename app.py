@@ -26,6 +26,7 @@ app.config['SECRET_KEY'] = 'whateveryouwant'
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug = DebugToolbarExtension(app)
 
+#(comment needed)
 @app.route('/')
 def home():
     langs = Lang.query.all()
@@ -37,10 +38,11 @@ def action(lang):
 
 @app.route('/report/<lang>', methods=["GET", "POST"]) 
 
+#(comment needed)
 def report(lang):
     lang = Lang.query.get_or_404(lang)
 
-
+#(comment needed)
     form = ReportForm()
     form.name.label = lang.form_name
     form.phone.label = lang.form_phone
