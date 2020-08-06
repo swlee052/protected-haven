@@ -2,10 +2,14 @@
 
 {% block content %}
 
+<h1>
+    Welcome. Please select your language.
+</h1>
+
 <div class="container">
-    <div class="d-flex align-items-center justify-content-center">
+    <div class="grid-container">
         {% for lang in langs %}
-        <a href="/report/{{lang.name}}" type="button" class="button">{{lang.script}}</a>
+        <a href="/report/{{lang.name}}" type="button" class="grid-item">{{lang.script}}</a>
         {% endfor %}
 
     </div>
