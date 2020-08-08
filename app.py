@@ -48,23 +48,30 @@ def report(lang):
     form.phone.label = lang.form_phone
     form.details.label = lang.form_details
     form.email.label = lang.form_email
+    form.send_location.label = lang.form_geoloc
 
     if form.validate_on_submit(): 
         name = form.name.data if form.name.data else 'Unspecified'
         phone = form.phone.data if form.phone.data else 'Unspecified'
         details = form.details.data if form.details.data else 'Unspecified'
         email = form.email.data if form.email.data else 'Unspecified'
-        location = form.location.data
+        if form.send_location.data == True:
+            location = "User did not wish to share their geodata"
+        else:
+            location = form.location.data
+
+        print(name, phone, details, email, location)
 
         """send email to the police"""
-        # time_obj = datetime.now()
-        # msg_time = dateTimeObj.year + '/' + dateTimeObj.month + '/' + dateTimeObj.day + '_', dateTimeObj.hour + ':' + dateTimeObj.minute
-        # msg = Message(f'New Report: {msg_time}', 
-        #                 sender = 'report@protectedhaven.space', 
-        #                 recipients = ['whateverthecopsmail@is.com'])
-        # msg.body = "Hello Flask message sent from Flask-Mail"
-        # mail.send(msg)
-        # return "Sent"
+        time_obj = datetime.now()
+        msg_time = str(time_obj.year) + '/' + str(time_obj.month) + '/' + str(time_obj.day) + '-' + str(time_obj.hour) + ':' + str(time_obj.minute)
+
+        msg = Message(f'New Report: {msg_time}', 
+                        sender = 'report@protectedhaven.space', 
+                        recipients = ['report@protectedhaven.space'])
+        msg.body = "Hello Flask message sent from Flask-Mail"
+        mail.send(msg)
+        return "Sent"
 
 
         return render_template('confirmation.html', name=name, phone=phone, details=details, email=email, location=location)
