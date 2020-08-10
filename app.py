@@ -78,6 +78,11 @@ def report(lang):
 
     return render_template('report.html', lang=lang, form=form)
 
+@app.route('/resources/<lang>', methods=["GET"]) 
+def resources(lang):
+    lang = Lang.query.get_or_404(lang)
+    return render_template('resources.html', lang=lang)
+
 @app.route('/confirmation/<lang>')
 def confirmation(lang): 
     return
