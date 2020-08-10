@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_ECHO'] = True
 app.config['MAIL_SERVER']='protectedhaven.space'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'report@protectedhaven.space'
-app.config['MAIL_PASSWORD'] = 'idontrembmer'
+app.config['MAIL_PASSWORD'] = 'wewillbeyouradvocate'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
