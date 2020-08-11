@@ -25,4 +25,4 @@ navigator.geolocation.getCurrentPosition(success, error, options);
   // return find_loc;
 }
 
-window.onload = find_loc();
+window.onload = find_loc(); // separate functions?
