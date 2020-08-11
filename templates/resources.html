@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>
+    {{lang.res_head}}
+</h1>
+
+<div class="container">
+    <div class="grid-container">
+        {% for lang in langs %}
+        <a href="/report/{{lang.name}}" type="button" class="grid-item">{{lang.script}}</a>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
