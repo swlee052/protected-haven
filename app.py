@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, flash
 from models import connect_db, Lang
 from forms import ReportForm
 from flask_mail import Mail, Message
@@ -60,21 +60,21 @@ def report(lang):
         else:
             location = form.location.data
 
-        print(name, phone, details, email, location)
+        # print(name, phone, details, email, location)
 
         """send email to the police"""
         time_obj = datetime.now()
         msg_time = str(time_obj.year) + '/' + str(time_obj.month) + '/' + str(time_obj.day) + '-' + str(time_obj.hour) + ':' + str(time_obj.minute)
 
-        msg = Message(f'New Report: {msg_time}', 
+        msg = Message(f'New Report from Protected Haven: {msg_time}', 
                         sender = 'report@protectedhaven.space', 
                         recipients = ['report@protectedhaven.space'])
-        msg.body = "Hello Flask message sent from Flask-Mail"
+        msg.body = "{name} {phone} {details} {email} {locations}"
         mail.send(msg)
         return "Sent"
 
 
-        return render_template('confirmation.html', name=name, phone=phone, details=details, email=email, location=location)
+        return render_template('confirmation.html')
 
     # import pdb
     # pdb.set_trace()
@@ -95,4 +95,6 @@ def error(lang):
 
 @app.route('/admin')
 def admin():
-    return
+
+
+    return render_template("admin.html")
