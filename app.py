@@ -76,6 +76,8 @@ def report(lang):
 
         return render_template('confirmation.html', name=name, phone=phone, details=details, email=email, location=location)
 
+    # import pdb
+    # pdb.set_trace()
     return render_template('report.html', lang=lang, form=form)
 
 @app.route('/resources/<lang>', methods=["GET"]) 
