@@ -5,7 +5,7 @@ from flask_mail import Mail, Message
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///protected_haven'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///protected_haven' #'postgresql://${username}:${password}@localhost/protected_haven' 
 app.config['SQLALCHEMY-TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
