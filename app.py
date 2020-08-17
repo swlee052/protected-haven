@@ -3,9 +3,13 @@ from models import connect_db, Lang
 from forms import ReportForm
 from flask_mail import Mail, Message
 from datetime import datetime
+import stdiomask
+
+username = input("Enter PostgreSQL username: ") #postgres
+password = stdiomask.getpass("Enter Password: ")
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///protected_haven' #'postgresql://${username}:${password}@localhost/protected_haven' 
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{username}:{password}@localhost/protected_haven'
 app.config['SQLALCHEMY-TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
