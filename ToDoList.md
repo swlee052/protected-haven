@@ -30,4 +30,8 @@
     - To add resources
     - To add languages
 
+## Other </br>
+- Mobile style
+- 
+
 

@@ -28,6 +28,8 @@ class Lang(db.Model):
     resources = db.relationship('Resource',
                                 backref='lang', cascade="all,delete")
 
+##make categories table?
+
 class Resource(db.Model):
     """resource database"""
 
@@ -37,6 +39,8 @@ class Resource(db.Model):
                     primary_key = True,
                     autoincrement = True)
     lang_id = db.Column(db.String, db.ForeignKey('langs.name'))
+    category = db.Column(db.String)
+    title = db.Column(db.String)
     text =  db.Column(db.String, nullable=False)
     phone = db.Column(db.String)
     email = db.Column(db.String)
