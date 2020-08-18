@@ -12,3 +12,5 @@ Website linked with a QR code used for foreigners in Ulsan, Korea to report crim
 - run 'export FLASK_ENV=development' to put Flask in development mode
 - run 'python3 seed.py' to generate and input data to our new database
 - run 'flask run' to start the server
+# protected-haven-deploy
+# protected-haven-deploy
