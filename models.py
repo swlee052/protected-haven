@@ -20,11 +20,11 @@ class Lang(db.Model):
     name = db.Column(db.String(), 
                         primary_key=True)
     script = db.Column(db.String, nullable=False)
-    form_name = db.Column(db.String, nullable=True)
-    form_email = db.Column(db.String, nullable=True)
-    form_phone = db.Column(db.String, nullable=True)
-    form_details = db.Column(db.String, nullable=True)
-    form_geoloc = db.Column(db.String, nullable=True)
+    form_name = db.Column(db.String, nullable=False)
+    form_email = db.Column(db.String, nullable=False)
+    form_phone = db.Column(db.String, nullable=False)
+    form_details = db.Column(db.String, nullable=False)
+    form_geoloc = db.Column(db.String, nullable=False)
     resources = db.relationship('Resource',
                                 backref='lang', cascade="all,delete")
 
@@ -44,6 +44,14 @@ class Resource(db.Model):
     text =  db.Column(db.String, nullable=False)
     phone = db.Column(db.String)
     email = db.Column(db.String)
+
+# class Category(db.Model):
+#     """resource categories"""
+
+#     id = db.Column(db.Integer,
+#                     primary_key = True,
+#                     autoincrement = True)
+
 
 class Admin(db.Model):
     """admin login info"""
@@ -65,3 +73,14 @@ class Admin(db.Model):
         hashed_utf8 = hashed.decode("utf8")
 
         return cls(username=username, password=hashed_utf8)
+
+    @classmethod
+    def auth_admin(cls, username, password):
+        """Authenticates the admin login"""
+
+        user = User.query.filter_by(username)
+
+        if user and bcrypt.check_password_hash(user.password, password):
+            return user
+        else:
+            return False

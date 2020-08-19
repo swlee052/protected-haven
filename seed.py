@@ -25,7 +25,7 @@ Resource.query.delete()
 
 eng = Lang.query.get_or_404('English')
 
-test_resource = Resource(text="test", phone='1-800-222-3333', email='test@test.com')
+test_resource = Resource(title="test", text="test", phone='1-800-222-3333', email='test@test.com')
 
 db.session.add(test_resource)
 db.session.commit()
