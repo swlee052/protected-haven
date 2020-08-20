@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form>
+<!-- <form>
     <div class="form-group">
       <label for="name">{{lang.form_name}}</label>
       <input type="text" class="form-control" id="name">
@@ -20,6 +20,35 @@
       <textarea class="form-control" id="details"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+  </form> -->
+
+  <form method="POST">
+    {{ form.hidden_tag() }}
+
+    {% for field in form
+    if field.widget.input_type != 'hidden' %}
+    <p>
+      {{ field.label }}
+      {{ field }}
+
+      {% for error in field.errors %}
+      {{ error }}
+      {% endfor %}
+    </p>
+    {% endfor %}
+
+
+    <button type="submit" class="submitButton">Report</button>
+    <hr />
+    <div class="optionButtons">
+      <a href="/" type="button" class="optionButton">Cancel</a>
+      <a href="/resources/{{lang.name}}" type="button" class="optionButton">Resources</a>
+      <!-- <input type="button" class="optionButton" value="Cancel" />
+      <input type="button" class="optionButton" value="Resources" /> -->
+    </div>
   </form>
 
+  <script src="/static/geo.js"></script>
 {% endblock %}
+
+

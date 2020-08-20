@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for resource in lang.resources %}
+    <h3>{{resource.title}}</h3>
+    <p>{{resource.text}}</p>
+    <ul>
+        {% if resource.phone %}
+        <li><a href="tel:{{resource.phone}}"> {{resource.phone}}</a></li>
+        {% endif %}
+        {% if resource.phone %}
+        <li><a href="mailto:{{resource.email}}"> {{resource.email}}</a></li>
+        {% endif %}
+    </ul>
+{% endfor %}
+
+{% endblock %}
