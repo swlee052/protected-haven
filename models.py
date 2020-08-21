@@ -25,6 +25,11 @@ class Lang(db.Model):
     form_phone = db.Column(db.String, nullable=False)
     form_details = db.Column(db.String, nullable=False)
     form_geoloc = db.Column(db.String, nullable=False)
+    form_personal_info = db.Column(db.String, nullable=False)
+    form_incident_details = db.Column(db.String, nullable=False)
+    form_submit = db.Column(db.String, nullable=False)
+    form_cancel = db.Column(db.String, nullable=False)
+    form_resources = db.Column(db.String, nullable=False)
     resources = db.relationship('Resource',
                                 backref='lang', cascade="all,delete")
 

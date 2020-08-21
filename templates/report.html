@@ -2,47 +2,48 @@
 
 {% block content %}
 
-<!-- <form>
-    <div class="form-group">
-      <label for="name">{{lang.form_name}}</label>
-      <input type="text" class="form-control" id="name">
-    </div>
-    <div class="form-group">
-      <label for="email">{{lang.form_email}}</label>
-      <input type="email" class="form-control" id="email">
-    </div>
-    <div class="form-group">
-      <label for="phone">{{lang.form_phone}}</label>
-      <input type="tel" class="form-control" id="phone">
-    </div>
-    <div class="form-group">
-      <label for="details">{{lang.form_details}}</label>
-      <textarea class="form-control" id="details"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form> -->
+  <h1>{{ lang.form_personal_info }}</h1>
 
   <form method="POST">
     {{ form.hidden_tag() }}
 
     {% for field in form
     if field.widget.input_type != 'hidden' %}
-    <p>
-      {{ field.label }}
-      {{ field }}
 
-      {% for error in field.errors %}
-      {{ error }}
-      {% endfor %}
+    {% if field.details %}
+    <h2>{{lang.form_incident_details}}</h2>
+    <br />
+    {{field}}
+
+    {% elif field.location %}
+
+    <div class="radio">
+      {{ field }}
+    </div>
+
+    {% else %}
+    <p>
+      <!-- {{ field.label }} -->
+      {{ field(placeholder=field.label) }}
     </p>
+    
+    {% endif %}
+
+    <p>  
+    {% for error in field.errors %}
+    {{ error }}
+    </p>
+
+    {% endfor %}
+    
     {% endfor %}
 
 
-    <button type="submit" class="submitButton">Report</button>
+    <button type="submit" class="submitButton">{{lang.form_submit}}</button>
     <hr />
     <div class="optionButtons">
-      <a href="/" type="button" class="optionButton">Cancel</a>
-      <a href="/resources/{{lang.name}}" type="button" class="optionButton">Resources</a>
+      <a href="/" type="button" class="optionButton">{{lang.form_cancel}}</a>
+      <a href="/resources/{{lang.name}}" type="button" class="optionButton">{{lang.form_resources}}</a>
       <!-- <input type="button" class="optionButton" value="Cancel" />
       <input type="button" class="optionButton" value="Resources" /> -->
     </div>
