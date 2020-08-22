@@ -228,7 +228,57 @@
     margin-top: 0px;
   }
   
+  h3 {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 80%; 
+    height: 40px;
+    margin: auto; 
+    font-size: 40px;
+    font-family: Josefin slab;
+    font-weight: bold; 
+    color: #6327a0; 
+    text-align: center;
+    padding: 8px; 
+    margin-bottom: 12px;
+  }
+
   
+  .listResources {
+    border: #6327a0 1px solid; 
+    border-radius: 8px;
+    overflow: hidden;
+    display: block; 
+    margin: auto; 
+    align-content: center;
+    align-items: center;
+    width: 460px; 
+    min-height: 120px;
+    justify-items: center;
+    margin-bottom: 16px; 
+  }
+
+  .listResources p {
+    color: #6327a0; 
+    padding: 4px; 
+    font-size: 20px; 
+    font-family: Oswald;
+    margin: 4px; 
+  }
+
+
+  li {
+    color: #73cbed; 
+    padding: 8px; 
+    list-style: none; 
+    text-decoration: none;
+  }
+
+  li a {
+    text-decoration: none;
+  }
+
   
   @media only screen and (max-width: 600px) {
     .grid-container {
@@ -289,6 +339,23 @@
     }
     .optionButton {
       width: 100px; 
+    }
+
+    .listResources {
+      width: 300px; 
+      overflow: hidden;
+    }
+
+    .listResources p {
+      font-size: 16px; 
+    }
+
+    h3 {
+      font-size: 32px; 
+    }
+
+    li {
+      font-size: 12px; 
     }
   }
   
