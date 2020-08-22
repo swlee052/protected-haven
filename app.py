@@ -9,8 +9,8 @@ from datetime import datetime
 # password = stdiomask.getpass("Enter Password: ")
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:0000@localhost/protected_haven'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///protected_haven'
+#app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:passwd@localhost/protected_haven'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///protected_haven'
 app.config['SQLALCHEMY-TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
