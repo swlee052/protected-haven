@@ -81,6 +81,7 @@
     width: 146px;
     height: 140px;
     box-shadow: 4px 6px 16px 0px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
   }
   
   h1 {
@@ -240,6 +241,7 @@
       padding: 8px;
       width: 180px;
       height: 60px;
+      text-decoration: none;
     }
   
     header {

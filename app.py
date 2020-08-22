@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, flash
-from models import connect_db, Lang, Admin
+from models import connect_db, Lang#, Admin
 from forms import ReportForm, LoginForm
 from flask_mail import Mail, Message
 from datetime import datetime
@@ -41,13 +41,12 @@ def home():
 def action(lang): 
     return
 
-@app.route('/report/<lang>', methods=["GET", "POST"]) 
-
 #Sets up and displays a report form in the selected language
+@app.route('/report/<lang>', methods=["GET", "POST"]) 
 def report(lang):
     lang = Lang.query.get_or_404(lang)
 
-#creates form from forms.py, adds the appropriate language labels
+    #creates form from forms.py, adds the appropriate language labels
     form = ReportForm()
     form.name.label = lang.form_name
     form.phone.label = lang.form_phone
@@ -77,9 +76,9 @@ def report(lang):
         msg.body = "{name} {phone} {details} {email} {locations}"
         mail.send(msg)
         return "Sent"
+        #add flash message
 
-
-        return render_template('confirmation.html')
+        # return render_template('confirmation.html')
 
     # import pdb
     # pdb.set_trace()

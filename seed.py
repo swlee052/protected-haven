@@ -17,11 +17,12 @@ english = Lang(name='English',
                 form_phone='Phone Number',
                 form_details='Details of the Incident',
                 form_geoloc="Do not send location",
-                form_personal_info="Personal Information (Optional)",
+                form_personal_info="Personal Information (optional)",
                 form_incident_details="Details of Incident",
                 form_submit="Submit",
                 form_cancel="Cancel",
-                form_resources="Resources")
+                form_resources="Resources",
+                form_no_geo='Do not send location')
 chinese = Lang(name='Chinese',
                     script='中文',
                     form_name='你的名字',
@@ -33,7 +34,8 @@ chinese = Lang(name='Chinese',
                     form_incident_details="事故详情",
                     form_submit="提交",
                     form_cancel="取消",
-                    form_resources="资源资源")
+                    form_resources="资源资源",
+                    form_no_geo='不发送位置')
 vietnamese = Lang(name='Vietnamese',
                     script='Tiếng Việt',
                     form_name='Tên của bạn',
@@ -45,7 +47,8 @@ vietnamese = Lang(name='Vietnamese',
                     form_incident_details="Chi tiết về sự cố",
                     form_submit="Gửi đi",
                     form_cancel="Huỷ bỏ",
-                    form_resources="Tài nguyên")
+                    form_resources="Không gửi vị trí",
+                    form_no_geo='Do not send location')
 tagalog = Lang(name='Tagalog', script='Tagalog',
                 form_name='Ang pangalan mo',
                 form_email='Ang iyong email address',
@@ -56,7 +59,8 @@ tagalog = Lang(name='Tagalog', script='Tagalog',
                 form_incident_details="Mga Detalye ng Insidente",
                 form_submit="Ipasa",
                 form_cancel="Pagkansela",
-                form_resources="Mga mapagkukunan")
+                form_resources="Mga mapagkukunan",
+                form_no_geo='Huwag magpadala ng lokasyon')
 
 
 db.session.add_all([english, chinese, vietnamese, tagalog])
@@ -68,7 +72,7 @@ Resource.query.delete()
 
 eng = Lang.query.get_or_404('English')
 
-test_resource = Resource(title="test", text="test", phone='1-800-222-3333', email='test@test.com')
+test_resource = Resource(title="test", text="test", phone='1-800-222-3333', email='test@test.com', address='Neverland')
 
 db.session.add(test_resource)
 db.session.commit()

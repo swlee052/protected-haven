@@ -10,27 +10,27 @@
     {% for field in form
     if field.widget.input_type != 'hidden' %}
 
-    {% if field.details %}
-    <h2>{{lang.form_incident_details}}</h2>
-    <br />
-    {{field}}
+    {% if field == form.details %}
+      <h2>{{lang.form_incident_details}}</h2>
+      <br />
+      {{field}}
 
-    {% elif field.location %}
+    {% elif field == form.send_location %}
 
-    <div class="radio">
-      {{ field }}
-    </div>
+      <div class="radio">
+        <label>{{ field }} {{lang.form_no_geo}}</label>
+      </div>
 
     {% else %}
-    <p>
+      <p>
       <!-- {{ field.label }} -->
-      {{ field(placeholder=field.label.text) }}
-    </p>
+      {{ field(placeholder=field.label) }}
+      </p>
     
     {% endif %}
 
-    <p>  
     {% for error in field.errors %}
+    <p>  
     {{ error }}
     </p>
 

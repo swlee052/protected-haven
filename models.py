@@ -30,6 +30,7 @@ class Lang(db.Model):
     form_submit = db.Column(db.String, nullable=False)
     form_cancel = db.Column(db.String, nullable=False)
     form_resources = db.Column(db.String, nullable=False)
+    form_no_geo = db.Column(db.String, nullable=False)
     resources = db.relationship('Resource',
                                 backref='lang', cascade="all,delete")
 
@@ -49,6 +50,7 @@ class Resource(db.Model):
     text =  db.Column(db.String, nullable=False)
     phone = db.Column(db.String)
     email = db.Column(db.String)
+    address = db.Column(db.String)
 
 # class Category(db.Model):
 #     """resource categories"""
@@ -58,34 +60,34 @@ class Resource(db.Model):
 #                     autoincrement = True)
 
 
-class Admin(db.Model):
-    """admin login info"""
+# class Admin(db.Model):
+#     """admin login info"""
 
-    __tablename__ = 'admins'
+#     __tablename__ = 'admins'
 
-    id = db.Column(db.Integer,
-                    primary_key=True,
-                    autoincrement=True)
-    username = db.Column(db.String, nullable=False, unique=True)
-    password = db.Column(db.Text, nullable=False)
+#     id = db.Column(db.Integer,
+#                     primary_key=True,
+#                     autoincrement=True)
+#     username = db.Column(db.String, nullable=False, unique=True)
+#     password = db.Column(db.Text, nullable=False)
 
-    @classmethod
-    def admin_reg(cls, username, pwd):
-        """Register admin with hashed password"""
+#     @classmethod
+#     def admin_reg(cls, username, pwd):
+#         """Register admin with hashed password"""
 
-        hashed = bcrypt.generate_password_hash(pwd)
+#         hashed = bcrypt.generate_password_hash(pwd)
 
-        hashed_utf8 = hashed.decode("utf8")
+#         hashed_utf8 = hashed.decode("utf8")
 
-        return cls(username=username, password=hashed_utf8)
+#         return cls(username=username, password=hashed_utf8)
 
-    @classmethod
-    def auth_admin(cls, username, password):
-        """Authenticates the admin login"""
+#     @classmethod
+#     def auth_admin(cls, username, password):
+#         """Authenticates the admin login"""
 
-        user = User.query.filter_by(username)
+#         user = User.query.filter_by(username)
 
-        if user and bcrypt.check_password_hash(user.password, password):
-            return user
-        else:
-            return False
+#         if user and bcrypt.check_password_hash(user.password, password):
+#             return user
+#         else:
+#             return False
