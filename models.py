@@ -26,6 +26,7 @@ class Lang(db.Model):
     form_details = db.Column(db.String, nullable=False)
     form_geoloc = db.Column(db.String, nullable=False)
     form_personal_info = db.Column(db.String, nullable=False)
+    form_call_notice = db.Column(db.String, nullable=False)
     form_incident_details = db.Column(db.String, nullable=False)
     form_submit = db.Column(db.String, nullable=False)
     form_cancel = db.Column(db.String, nullable=False)

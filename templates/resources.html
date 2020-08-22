@@ -2,17 +2,25 @@
 
 {% block content %}
 
+<h3>Resources</h3>
+
 {% for resource in lang.resources %}
-    <h3>{{resource.title}}</h3>
-    <p>{{resource.text}}</p>
+<div class="listResources">
+
+    <h4>{{resource.title}}</h4>
     <ul>
+        <p>{{resource.text}}</p>
         {% if resource.phone %}
-        <li><a href="tel:{{resource.phone}}"> {{resource.phone}}</a></li>
+        <li>Phone: <a href="tel:{{resource.phone}}"> {{resource.phone}}</a></li>
         {% endif %}
         {% if resource.phone %}
-        <li><a href="mailto:{{resource.email}}"> {{resource.email}}</a></li>
+        <li>Email: <a href="mailto:{{resource.email}}"> {{resource.email}}</a></li>
+        {% endif %}
+        {% if resource.address %}
+        <li>Address: <a href="#" onClick="return false;">{{resource.address}}</a></li>
         {% endif %}
     </ul>
+</div>
 {% endfor %}
 
 {% endblock %}

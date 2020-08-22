@@ -90,12 +90,11 @@
     align-items: center;
     width: 612px;
     height: 80px;
-    margin: auto;
+    margin: 0 auto;
     font-size: 40px;
     font-family: Oswald;
     color: #73cbed;
     text-align: center;
-    padding: 20px;
   }
   
   form {
@@ -286,6 +285,16 @@
 
   li a {
     text-decoration: none;
+  }
+
+  .callNotice {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+    align-items: center;
+    align-content: center;
+    color: #707070;
+    font-family: Oswald, serif;
   }
 
   
