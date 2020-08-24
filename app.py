@@ -73,7 +73,7 @@ def report(lang):
         msg = Message(f'New Report from Protected Haven: {msg_time}', 
                         sender = 'report@protectedhaven.space', 
                         recipients = ['report@protectedhaven.space'])
-        msg.body = "{name} {phone} {details} {email} {locations}"
+        msg.body = f"{name} \n{phone} \n{details} \n{email} \n{location}"
         mail.send(msg)
         return "Sent"
         #add flash message
