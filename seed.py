@@ -1,5 +1,9 @@
 from models import db, Lang, Resource
 from app import app
+import sys
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding = 'utf-8')
+sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding = 'utf-8')
 
 #resets, then creates our basic database
 db.drop_all()
@@ -18,6 +22,7 @@ english = Lang(name='English',
                 form_details='Details of the Incident',
                 form_geoloc="Do not send location",
                 form_personal_info="Personal Information (optional)",
+                form_call_notice="*In case of an emergency, please call on of the numbers found below.",
                 form_incident_details="Details of Incident",
                 form_submit="Submit",
                 form_cancel="Cancel",
@@ -31,6 +36,7 @@ chinese = Lang(name='Chinese',
                     form_details='事故详情',
                     form_geoloc="不发送位置",
                     form_personal_info="个人信息（可选）",
+                    form_call_notice="**紧急情况下，请拨打以下电话号码。",
                     form_incident_details="事故详情",
                     form_submit="提交",
                     form_cancel="取消",
@@ -44,6 +50,7 @@ vietnamese = Lang(name='Vietnamese',
                     form_details='Chi tiết về sự cố',
                     form_geoloc="Không gửi vị trí",
                     form_personal_info="Thông tin cá nhân (Tùy chọn)", 
+                    form_call_notice="* Trong trường hợp khẩn cấp, vui lòng gọi theo các số bên dưới.",
                     form_incident_details="Chi tiết về sự cố",
                     form_submit="Gửi đi",
                     form_cancel="Huỷ bỏ",
@@ -56,6 +63,7 @@ tagalog = Lang(name='Tagalog', script='Tagalog',
                 form_details='Mga Detalye ng Insidente',
                 form_geoloc="Huwag magpadala ng lokasyon",
                 form_personal_info="Personal na Impormasyon (Opsyonal)",
+                form_call_notice="* Sa kaso ng isang emergency, mangyaring tumawag sa mga numero na matatagpuan sa ibaba.",
                 form_incident_details="Mga Detalye ng Insidente",
                 form_submit="Ipasa",
                 form_cancel="Pagkansela",

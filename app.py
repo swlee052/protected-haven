@@ -9,7 +9,7 @@ from datetime import datetime
 # password = stdiomask.getpass("Enter Password: ")
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{username}:{password}@localhost/protected_haven'
+#app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:passwd@localhost/protected_haven'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///protected_haven'
 app.config['SQLALCHEMY-TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
@@ -73,7 +73,7 @@ def report(lang):
         msg = Message(f'New Report from Protected Haven: {msg_time}', 
                         sender = 'report@protectedhaven.space', 
                         recipients = ['report@protectedhaven.space'])
-        msg.body = "{name} {phone} {details} {email} {locations}"
+        msg.body = f"{name} \n{phone} \n{details} \n{email} \n{location}"
         mail.send(msg)
         return "Sent"
         #add flash message
